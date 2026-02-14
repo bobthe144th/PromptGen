@@ -1,4 +1,6 @@
-# Prompt Dataset Generator for TeichAI Datagen
+# Prompt Dataset Generator Companion for TeichAI Datagen
+
+Note: The model used in the script is relatively small and so will not generate extremely hard prompts as a bigger model might, for frontier distillation a bigger model will help massively.
 
 This tool generates high-quality, domain-distributed training prompts designed specifically for use with TeichAI's Datagen CLI. The tool runs inside the Unsloth Docker container and uses Qwen 3 4B in GGUF format to create diverse prompts across ten customizable domains, producing output that feeds directly into TeichAI's reasoning trace generation workflow.
 
@@ -9,6 +11,8 @@ TeichAI is doing remarkable work democratizing access to frontier AI reasoning c
 This tool addresses the first stage of their workflow by automating prompt generation completely. By using a local GGUF model through llama.cpp, you can generate thousands of diverse, high-quality prompts without any API costs. This means TeichAI and others working on similar projects can focus their limited budgets entirely on the expensive frontier model API calls that capture valuable reasoning traces, rather than spending money on prompt generation.
 
 The tool is designed to integrate seamlessly into the existing TeichAI ecosystem. It runs in the same Unsloth container they already use for fine-tuning, outputs prompts in exactly the format their Datagen CLI expects, and requires no changes to their established workflow. You simply generate prompts with this tool, feed them into Datagen to get reasoning traces from frontier models, and then use those traces to fine-tune smaller models with Unsloth.
+
+To learn more visit: teichai.com
 
 ## What You'll Be Setting Up
 
@@ -174,7 +178,9 @@ Each prompt is self-contained and ready to be sent to a frontier model for reaso
 
 You can verify the domain distribution by counting prompts or by looking at the patterns in the content. Coding prompts typically mention programming languages, functions, or algorithms. Math prompts involve calculations or mathematical concepts. Science prompts reference scientific phenomena or experiments. The distribution should roughly match the percentages you specified, though there may be small variations due to rounding.
 
-## Next Steps: Using with TeichAI's Datagen
+## Next Steps: 
+
+##Using with TeichAI's Datagen
 
 Once you have your prompt dataset, you're ready to move to the next stage of the TeichAI workflow. The prompts you generated are the first ingredient in creating a reasoning trace dataset. To complete the process, you'll use TeichAI's Datagen CLI to send these prompts to a frontier model like Claude Opus, GPT-4, or Gemini.
 
