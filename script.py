@@ -153,28 +153,24 @@ class PromptDatasetGenerator:
         """
         # Construct the prompt for Qwen 3 using the ChatML format
         # Qwen models expect a specific chat format with system and user messages
-        system_prompt = f"""You are a prompt generator. Your ONLY job is to output {batch_size} training prompts for the domain of {domain}.
+        system_prompt = f"""You are a helpful AI assistant that generates high-quality training prompts for language models.
+Generate exactly {batch_size} diverse, specific prompts in the domain of {domain}. /no_think
 
-CRITICAL RULES:
-- Output ONLY the prompts themselves, nothing else
-- NO explanations, NO reasoning, NO meta-commentary
-- NO phrases like "Here are the prompts" or "Let me generate"
-- Each prompt on its own line
-- Do NOT number the prompts (no "1.", "2.", etc.)
-- Do NOT use bullet points or dashes
+Requirements:
+- Each prompt should be a clear question or instruction
+- Prompts should vary in complexity (some simple, some complex)
+- Prompts should be diverse and cover different aspects of {domain}
+- Each prompt should be on a new line
+- Do not number the prompts
+- Do not include any explanations or additional text
+- Only output the prompts themselves
+- Do not output any prompts that would require information not stated in the prompt
+- Make the prompts as hard as possible
+- All content of the prompt must be on the ONE line
 
-GOOD OUTPUT EXAMPLE:
+Example format:
 Write a Python function to calculate fibonacci numbers
-Explain the concept of recursion with examples
-Debug this code snippet that has a syntax error
-
-BAD OUTPUT EXAMPLE (DO NOT DO THIS):
-Okay, let me generate prompts for {domain}...
-1. Write a function...
-Here are some ideas:
-- First prompt about...
-
-Output EXACTLY {batch_size} prompts for {domain}, one per line, with NO other text."""
+Explain the concept of recursion with examples"""
 
         user_prompt = f"{batch_size} prompts for {domain}:"
         
