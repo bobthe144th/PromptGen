@@ -5,7 +5,7 @@ Note: The model used in the script is relatively small and so will not generate 
 This tool generates high-quality, domain-distributed training prompts designed specifically for use with TeichAI's Datagen CLI. The tool runs inside the Unsloth Docker container and uses Qwen 3 4B in GGUF format to create diverse prompts across ten customizable domains, producing output that feeds directly into TeichAI's reasoning trace generation workflow.
 
 ## TL;DR
-Open Docker Desktop. Pull the unsloth:latest container. Run it with mounts. Go to the listed localhost port. Paste the code from script.py into a new notebook Cell and run it.
+Open Docker Desktop. Pull the unsloth:latest container. Run it with mounts. Go to the listed localhost port. First put 'pip install llama-cpp-python' in the first cell. Run that. Than Paste the code from script.py into a new notebook Cell and run it.
 
 ## Understanding the Purpose
 
