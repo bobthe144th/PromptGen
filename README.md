@@ -4,6 +4,9 @@ Note: The model used in the script is relatively small and so will not generate 
 
 This tool generates high-quality, domain-distributed training prompts designed specifically for use with TeichAI's Datagen CLI. The tool runs inside the Unsloth Docker container and uses Qwen 3 4B in GGUF format to create diverse prompts across ten customizable domains, producing output that feeds directly into TeichAI's reasoning trace generation workflow.
 
+## TL;DR
+Open Docker Desktop. Pull the unsloth:latest container. Run it with mounts. Go to the listed localhost port. Paste the code from script.py into a new notebook Cell and run it.
+
 ## Understanding the Purpose
 
 TeichAI is doing remarkable work democratizing access to frontier AI reasoning capabilities. They're a small team of college students who distill powerful models like Claude Opus into smaller, locally-runnable versions that anyone can use. Their process involves three stages: creating diverse prompts, querying frontier models to capture reasoning traces, and fine-tuning open-source models on those traces. The challenge they face is that generating high-quality prompts at scale can be time-consuming, and since they're funding this research out of pocket, every dollar counts. Their Claude Opus dataset alone cost over fifty dollars to generate.
